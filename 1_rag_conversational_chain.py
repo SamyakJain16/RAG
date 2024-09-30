@@ -1,5 +1,5 @@
 import streamlit as st
-import PyPDF2
+#import PyPDF2
 from PyPDF2 import PdfReader
 from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import FAISS
