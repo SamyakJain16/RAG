@@ -1,4 +1,7 @@
 import streamlit as st
+# import PyPDF2
+# from PyPDF2 import PdfReader
+import pdfplumber
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains import ConversationalRetrievalChain
@@ -6,8 +9,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
-
-
 
 import getpass
 import os
@@ -58,6 +59,7 @@ def main():
 # Extracts and concatenates text from a list of PDF documents
 
 
+"""
 def get_pdf_text(pdf_docs):
     text = ""
     for pdf in pdf_docs:
@@ -67,7 +69,25 @@ def get_pdf_text(pdf_docs):
             if page_text:  # Ensure non-empty text
                 text += page_text
     return text
+"""
+# Extracts and concatenates text from a list of PDF documents using pdfplumber
 
+
+def get_pdf_text(pdf_docs):
+    text = ""
+    for pdf in pdf_docs:
+        with pdfplumber.open(pdf) as pdf_reader:
+            for page in pdf_reader.pages:
+                page_text = page.extract_text()
+                if page_text:  # Ensure non-empty text
+                    text += page_text
+    return text
+
+
+def get_pdf(f_path):
+    loader = PyPDFLoader(
+        file_path=f_path,
+    )
 # Splits a given text into smaller chunks based on specified conditions
 
 
