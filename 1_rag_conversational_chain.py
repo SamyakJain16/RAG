@@ -56,20 +56,8 @@ def main():
             for i, (speaker, message) in enumerate(st.session_state["chat_history"]):
                 st.write(f"**{speaker}:** {message}")
 
-# Extracts and concatenates text from a list of PDF documents
 
 
-"""
-def get_pdf_text(pdf_docs):
-    text = ""
-    for pdf in pdf_docs:
-        pdf_reader = PdfReader(pdf)
-        for page in pdf_reader.pages:
-            page_text = page.extract_text()
-            if page_text:  # Ensure non-empty text
-                text += page_text
-    return text
-"""
 # Extracts and concatenates text from a list of PDF documents using pdfplumber
 
 
