@@ -1,6 +1,7 @@
 import streamlit as st
 import pypdf
-from pypdf import PdfReader
+import PyPDF2
+from PyPDF2 import PdfReader
 from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferWindowMemory
