@@ -1,13 +1,12 @@
 import streamlit as st
-import pypdf
-from pypdf import PdfReader
-from langchain.embeddings import SentenceTransformerEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI
 from langchain_openai.embeddings import OpenAIEmbeddings
+from langchain_community.document_loaders import PyPDFLoader
+
 
 
 import getpass
