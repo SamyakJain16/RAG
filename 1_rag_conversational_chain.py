@@ -1,5 +1,4 @@
 import streamlit as st
-import pypdf
 import PyPDF2
 from PyPDF2 import PdfReader
 from langchain.embeddings import SentenceTransformerEmbeddings
